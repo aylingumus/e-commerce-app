@@ -1,0 +1,55 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by phoneNumber"
+        [(ngModel)]="phoneNumber"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchCustomerInfos()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="fullName">Full Name</th>
+          <th scope="address">Order ID</th>
+          <th scope="locationName">Location</th>
+          <th scope="subCityName">SubCity</th>
+          <th scope="cityName">City</th>
+          <th scope="brand">Brand</th>
+          <th scope="phoneNumber">Phone Number</th>
+          <th scope="distributorNumber">Distributor Number</th>
+        </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let customerInfo of customerInfos; let i=index;">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td>{{customerInfo.subscriptionId}}</td>
+          <td>{{customerInfo.fullName}}</td>
+          <td>{{customerInfo.address}}</td>
+          <td>{{customerInfo.locationName}}</td>
+          <td>{{customerInfo.subCityName}}</td>
+          <td>{{customerInfo.cityName}}</td>
+          <td>{{customerInfo.brand}}</td>
+          <td>{{customerInfo.phoneNumber}}</td>
+          <td>{{customerInfo.distributorNumber}}</td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
